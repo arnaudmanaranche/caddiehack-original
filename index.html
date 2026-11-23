@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Caddiehack original (js-dos)</title>
+    <link rel="stylesheet" href="./jsdos/js-dos.css" />
+    <style>body{margin:0;background:#000}#dos{width:100vw;height:100vh}</style>
+  </head>
+  <body>
+    <div id="dos"></div>
+    <script src="./jsdos/js-dos.js"></script>
+    <script>
+      Dos(document.getElementById('dos'), {
+        url: './golf.jsdos',
+        pathPrefix: './jsdos/emulators/',
+        // Dev helper: expose the emulator's command interface so frames can be captured (see vite.config.ts).
+        onEvent: (event, arg) => { if (event === 'ci-ready') window.__ci = arg; },
+      });
+    </script>
+  </body>
+</html>
